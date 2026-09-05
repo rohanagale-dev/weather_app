@@ -1,0 +1,6 @@
+{
+  "name": "Weather Forecast & Planner",
+  "description": "7-day weather forecast, air quality index, and daily planning recommendations powered by Open-Meteo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
