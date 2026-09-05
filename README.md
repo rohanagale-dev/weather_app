@@ -141,6 +141,42 @@ All weather forecast, atmospheric air quality, and geographic search data are re
 
 ---
 
+## Deployment & CI/CD Workflow
+
+This project is developed in **Google AI Studio**, pushed to **GitHub**, and continuously deployed through **Cloudflare Pages**.
+
+### 1. Export from Google AI Studio to GitHub
+
+1. Open your project in **Google AI Studio**.
+2. Click on the **Settings** (gear icon) or project menu in the top navigation.
+3. Select **Export to GitHub**.
+4. Authenticate your GitHub account and choose to create a new repository or sync commits to an existing repository.
+
+---
+
+### 2. Deploying to Cloudflare Pages (Continuous Deployment)
+
+Cloudflare Pages automatically triggers builds and deploys updates whenever changes are pushed to your GitHub repository.
+
+1. Sign in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
+2. Navigate to **Workers & Pages** > **Create application** > **Pages**.
+3. Select **Connect to Git** and choose your GitHub repository.
+4. Configure the build parameters:
+   - **Framework preset**: `Vite`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Production branch**: `main`
+5. Click **Save and Deploy**. Cloudflare Pages will build the app and assign a free `*.pages.dev` URL with automatic SSL and edge caching.
+
+---
+
+### 3. Cloudflare Configuration Notes
+
+- **Zero API Keys Required**: The application communicates with public Open-Meteo meteorological endpoints, so no secret environment variables or server keys need to be added to Cloudflare Pages.
+- **Client-Side SPA**: All routing, geocoding requests, and layout rendering are handled client-side on Cloudflare's global edge network.
+
+---
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
